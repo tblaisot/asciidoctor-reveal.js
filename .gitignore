@@ -9,8 +9,8 @@
 # node stuff
 node_modules/
 npm-debug.log
-build/
-/dist/main.js
+#build/
+#/dist/main.js
 /asciidoctor-reveal.js-*.tgz
 
 # ruby stuff
