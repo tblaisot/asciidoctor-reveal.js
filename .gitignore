@@ -19,3 +19,6 @@ build/
 
 # the compiled slim template
 /lib/asciidoctor-revealjs/converter.rb
+
+# ide
+/.idea
