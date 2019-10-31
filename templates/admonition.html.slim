@@ -14,4 +14,9 @@
       td.content
         - if title?
           .title=title
-        =content
+        - if blocks?
+          =content
+        - else
+          .paragraph
+            p
+              =content

@@ -22,7 +22,7 @@ Opal.modules["asciidoctor-revealjs/converter"] = function(Opal) {
   }
   var self = Opal.top, $nesting = [], nil = Opal.nil, $$$ = Opal.const_get_qualified, $$ = Opal.const_get_relative, $breaker = Opal.breaker, $slice = Opal.slice, $module = Opal.module, $klass = Opal.klass, $truthy = Opal.truthy, $send = Opal.send, $hash2 = Opal.hash2;
 
-  Opal.add_stubs(['$==', '$nil?', '$option?', '$include?', '$join', '$map', '$split', '$!=', '$to_s', '$inject', '$!', '$nil_or_empty?', '$is_a?', '$compact', '$<<', '$empty?', '$+', '$level', '$special', '$to_i', '$attr', '$document', '$numbered', '$caption', '$<=', '$sectnum', '$captioned_title', '$content', '$each', '$constants', '$const_set', '$const_get', '$register_for', '$respond_to?', '$basebackend', '$outfilesuffix', '$filetype', '$[]', '$create', '$backend_info', '$new', '$node_name', '$send', '$extend', '$instance_eval', '$set_local_variables', '$converter', '$binding', '$===', '$tr_s', '$fetch', '$references', '$role', '$flatten', '$map!', '$to_proc', '$reject!', '$[]=', '$-', '$reject', '$title?', '$title', '$attr?', '$has_role?', '$resolve_content', '$icon_uri', '$convert', '$role?', '$items', '$text', '$blocks?', '$*', '$media_uri', '$id', '$style', '$notitle', '$has_header?', '$footnotes?', '$footnotes', '$index', '$find_by', '$blocks', '$context', '$attributes', '$first', '$image_uri', '$roles', '$chomp', '$text?', '$last', '$each_with_index', '$doctype', '$puts', '$doctitle', '$normalize_web_path', '$>=', '$coderay_stylesheet_data', '$instance', '$pygments_stylesheet_data', '$docinfo', '$subtitle?', '$slice_text', '$header', '$subtitle', '$length', '$pop', '$author', '$to_boolean', '$to_valid_slidenumber', '$read', '$to_sym', '$strip', '$sub_specialcharacters', '$start_with?', '$end_with?', '$size', '$zero?', '$sections', '$section_level', '$section_title', '$<', '$list_marker_keyword', '$select', '$html_tag', '$colspan', '$rowspan', '$local_variable_set']);
+  Opal.add_stubs(['$==', '$nil?', '$option?', '$include?', '$join', '$map', '$split', '$!=', '$to_s', '$inject', '$!', '$nil_or_empty?', '$is_a?', '$compact', '$<<', '$empty?', '$+', '$level', '$special', '$to_i', '$attr', '$document', '$numbered', '$caption', '$<=', '$sectnum', '$captioned_title', '$content', '$each', '$constants', '$const_set', '$const_get', '$register_for', '$respond_to?', '$basebackend', '$outfilesuffix', '$filetype', '$[]', '$create', '$backend_info', '$new', '$node_name', '$send', '$extend', '$instance_eval', '$set_local_variables', '$converter', '$binding', '$===', '$tr_s', '$fetch', '$references', '$role', '$flatten', '$map!', '$to_proc', '$reject!', '$[]=', '$-', '$reject', '$title?', '$title', '$attr?', '$has_role?', '$resolve_content', '$icon_uri', '$blocks?', '$convert', '$role?', '$items', '$text', '$*', '$media_uri', '$id', '$style', '$notitle', '$has_header?', '$footnotes?', '$footnotes', '$index', '$find_by', '$blocks', '$context', '$attributes', '$first', '$image_uri', '$roles', '$parent', '$chomp', '$text?', '$last', '$each_with_index', '$doctype', '$puts', '$doctitle', '$normalize_web_path', '$>=', '$coderay_stylesheet_data', '$instance', '$pygments_stylesheet_data', '$docinfo', '$subtitle?', '$slice_text', '$header', '$subtitle', '$length', '$pop', '$author', '$to_boolean', '$to_valid_slidenumber', '$read', '$to_sym', '$strip', '$sub_specialcharacters', '$start_with?', '$end_with?', '$size', '$zero?', '$sections', '$section_level', '$section_title', '$<', '$list_marker_keyword', '$select', '$html_tag', '$colspan', '$rowspan', '$local_variable_set']);
   
   (function($base, $parent_nesting) {
     function $Asciidoctor() {};
@@ -775,7 +775,14 @@ Opal.modules["asciidoctor-revealjs/converter"] = function(Opal) {
             _buf['$<<']("<div class=\"title\">");
             _buf['$<<'](self.$title());
             _buf['$<<']("</div>");};
-          _buf['$<<'](self.$content());
+          if ($truthy(self['$blocks?']())) {
+            _buf['$<<'](self.$content())
+          } else {
+            
+            _buf['$<<']("<div class=\"paragraph\"><p>");
+            _buf['$<<'](self.$content());
+            _buf['$<<']("</p></div>");
+          };
           _buf['$<<']("</td></tr></table></div>");
         };
         return (_buf = _buf.$join(""));}, TMP_29.$$s = self, TMP_29.$$arity = 0, TMP_29));
@@ -1826,8 +1833,9 @@ Opal.modules["asciidoctor-revealjs/converter"] = function(Opal) {
         opts = $hash2([], {});
       };
       node.$extend($$($nesting, 'Helpers'));
-      return $send(node, 'instance_eval', [], (TMP_55 = function(){var self = TMP_55.$$s || this, $a, $b, TMP_56, TMP_57, TMP_59, TMP_60, _buf = nil, titleless = nil, title = nil, hide_title = nil, vertical_slides = nil, data_background_image = nil, data_background_size = nil, data_background_repeat = nil, data_background_transition = nil, section_images = nil, bg_image = nil, data_background_color = nil, _slim_codeattributes1 = nil, _temple_html_attributeremover1 = nil, _slim_codeattributes2 = nil, _slim_codeattributes3 = nil, _slim_codeattributes4 = nil, _slim_codeattributes5 = nil, _slim_codeattributes6 = nil, _slim_codeattributes7 = nil, _slim_codeattributes8 = nil, _slim_codeattributes9 = nil, _slim_codeattributes10 = nil, _slim_codeattributes11 = nil, _slim_codeattributes12 = nil, _slim_codeattributes13 = nil, _slim_codeattributes14 = nil, _slim_htag_filter1 = nil, _slim_codeattributes15 = nil, _temple_html_attributeremover2 = nil, _slim_codeattributes16 = nil, _slim_codeattributes17 = nil, _slim_codeattributes18 = nil, _slim_codeattributes19 = nil, _slim_codeattributes20 = nil, _slim_codeattributes21 = nil, _slim_codeattributes22 = nil, _slim_codeattributes23 = nil, _slim_codeattributes24 = nil, _slim_codeattributes25 = nil, _slim_codeattributes26 = nil, _slim_codeattributes27 = nil, _slim_codeattributes28 = nil, _slim_htag_filter2 = nil;
+      return $send(node, 'instance_eval', [], (TMP_55 = function(){var self = TMP_55.$$s || this, $a, $b, TMP_56, TMP_57, TMP_59, TMP_60, _buf = nil, titleless = nil, title = nil, hide_title = nil, vertical_slides = nil, data_background_image = nil, data_background_size = nil, data_background_repeat = nil, data_background_transition = nil, section_images = nil, bg_image = nil, data_background_color = nil, _slim_codeattributes1 = nil, _temple_html_attributeremover1 = nil, _slim_codeattributes2 = nil, _slim_codeattributes3 = nil, _slim_codeattributes4 = nil, _slim_codeattributes5 = nil, _slim_codeattributes6 = nil, _slim_codeattributes7 = nil, _slim_codeattributes8 = nil, _slim_codeattributes9 = nil, _slim_codeattributes10 = nil, _slim_codeattributes11 = nil, _slim_codeattributes12 = nil, _slim_codeattributes13 = nil, _slim_codeattributes14 = nil, _slim_htag_filter1 = nil, _slim_htag_filter2 = nil, _slim_htag_filter3 = nil, _slim_htag_filter4 = nil, _slim_codeattributes15 = nil, _temple_html_attributeremover2 = nil, _slim_codeattributes16 = nil, _slim_codeattributes17 = nil, _slim_codeattributes18 = nil, _slim_codeattributes19 = nil, _slim_codeattributes20 = nil, _slim_codeattributes21 = nil, _slim_codeattributes22 = nil, _slim_codeattributes23 = nil, _slim_codeattributes24 = nil, _slim_codeattributes25 = nil, _slim_codeattributes26 = nil, _slim_codeattributes27 = nil, _slim_codeattributes28 = nil, _slim_htag_filter5 = nil, _slim_htag_filter6 = nil, _slim_htag_filter7 = nil, _slim_htag_filter8 = nil;
         if (self.level == null) self.level = nil;
+        if (self.parent == null) self.parent = nil;
 
       
         if ($truthy(opts['$empty?']())) {
@@ -2040,13 +2048,41 @@ Opal.modules["asciidoctor-revealjs/converter"] = function(Opal) {
           if ($truthy(hide_title)) {
           } else {
             
-            _slim_htag_filter1 = self.level.$to_s();
+            if (self.level['$=='](2)) {
+              
+              _slim_htag_filter1 = self.parent.$level().$to_s();
+              _buf['$<<']("<h");
+              _buf['$<<'](_slim_htag_filter1);
+              _buf['$<<'](" class=\"parent-title\">");
+              _buf['$<<'](self.$parent().$title());
+              _buf['$<<']("</h");
+              _buf['$<<'](_slim_htag_filter1);
+              _buf['$<<'](">");};
+            if (self.level['$=='](3)) {
+              
+              _slim_htag_filter2 = self.parent.$parent().$level().$to_s();
+              _buf['$<<']("<h");
+              _buf['$<<'](_slim_htag_filter2);
+              _buf['$<<'](" class=\"grand-parent-title\">");
+              _buf['$<<'](self.$parent().$parent().$title());
+              _buf['$<<']("</h");
+              _buf['$<<'](_slim_htag_filter2);
+              _buf['$<<'](">");
+              _slim_htag_filter3 = self.parent.$level().$to_s();
+              _buf['$<<']("<h");
+              _buf['$<<'](_slim_htag_filter3);
+              _buf['$<<'](" class=\"parent-title\">");
+              _buf['$<<'](self.$parent().$title());
+              _buf['$<<']("</h");
+              _buf['$<<'](_slim_htag_filter3);
+              _buf['$<<'](">");};
+            _slim_htag_filter4 = self.level.$to_s();
             _buf['$<<']("<h");
-            _buf['$<<'](_slim_htag_filter1);
+            _buf['$<<'](_slim_htag_filter4);
             _buf['$<<'](">");
             _buf['$<<'](title);
             _buf['$<<']("</h");
-            _buf['$<<'](_slim_htag_filter1);
+            _buf['$<<'](_slim_htag_filter4);
             _buf['$<<'](">");
           };
           $send($rb_minus(self.$blocks(), vertical_slides), 'each', [], (TMP_59 = function(block){var self = TMP_59.$$s || this;
@@ -2224,13 +2260,41 @@ Opal.modules["asciidoctor-revealjs/converter"] = function(Opal) {
           if ($truthy(hide_title)) {
           } else {
             
-            _slim_htag_filter2 = self.level.$to_s();
+            if (self.level['$=='](2)) {
+              
+              _slim_htag_filter5 = self.parent.$level().$to_s();
+              _buf['$<<']("<h");
+              _buf['$<<'](_slim_htag_filter5);
+              _buf['$<<'](" class=\"parent-title\">");
+              _buf['$<<'](self.$parent().$title());
+              _buf['$<<']("</h");
+              _buf['$<<'](_slim_htag_filter5);
+              _buf['$<<'](">");};
+            if (self.level['$=='](3)) {
+              
+              _slim_htag_filter6 = self.parent.$parent().$level().$to_s();
+              _buf['$<<']("<h");
+              _buf['$<<'](_slim_htag_filter6);
+              _buf['$<<'](" class=\"grand-parent-title\">");
+              _buf['$<<'](self.$parent().$parent().$title());
+              _buf['$<<']("</h");
+              _buf['$<<'](_slim_htag_filter6);
+              _buf['$<<'](">");
+              _slim_htag_filter7 = self.parent.$level().$to_s();
+              _buf['$<<']("<h");
+              _buf['$<<'](_slim_htag_filter7);
+              _buf['$<<'](" class=\"parent-title\">");
+              _buf['$<<'](self.$parent().$title());
+              _buf['$<<']("</h");
+              _buf['$<<'](_slim_htag_filter7);
+              _buf['$<<'](">");};
+            _slim_htag_filter8 = self.level.$to_s();
             _buf['$<<']("<h");
-            _buf['$<<'](_slim_htag_filter2);
+            _buf['$<<'](_slim_htag_filter8);
             _buf['$<<'](">");
             _buf['$<<'](title);
             _buf['$<<']("</h");
-            _buf['$<<'](_slim_htag_filter2);
+            _buf['$<<'](_slim_htag_filter8);
             _buf['$<<'](">");
           };
           _buf['$<<'](self.$content().$chomp());
@@ -4058,7 +4122,7 @@ Opal.modules["asciidoctor-revealjs/converter"] = function(Opal) {
         _buf['$<<'](self.$attr("revealjs_parallaxBackgroundVertical", "null"));
         _buf['$<<'](",\n  // The display mode that will be used to show slides\n  display: '");
         _buf['$<<'](self.$attr("revealjs_display", "block"));
-        _buf['$<<']("',\n  hash: true,\n  // The \"normal\" size of the presentation, aspect ratio will be preserved\n  // when the presentation is scaled to fit different resolutions. Can be\n  // specified using percentage units.\n  width: ");
+        _buf['$<<']("',\n\n  // The \"normal\" size of the presentation, aspect ratio will be preserved\n  // when the presentation is scaled to fit different resolutions. Can be\n  // specified using percentage units.\n  width: ");
         _buf['$<<'](self.$attr("revealjs_width", 960));
         _buf['$<<'](",\n  height: ");
         _buf['$<<'](self.$attr("revealjs_height", 700));

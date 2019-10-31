@@ -51,6 +51,11 @@
     data-state=(attr 'state'))
 
     - unless hide_title
+      - if @level == 2
+        h class='parent-title' level=(@parent.level) = parent.title
+      - if @level == 3
+        h class='grand-parent-title' level=(@parent.parent.level) = parent.parent.title
+        h class='parent-title' level=(@parent.level) = parent.title
       h level=(@level) =title
     - (blocks - vertical_slides).each do |block|
       =block.convert
@@ -75,5 +80,10 @@
     data-state=(attr 'state'))
 
     - unless hide_title
+      - if @level == 2
+        h class='parent-title' level=(@parent.level) = parent.title
+      - if @level == 3
+        h class='grand-parent-title' level=(@parent.parent.level) = parent.parent.title
+        h class='parent-title' level=(@parent.level) = parent.title
       h level=(@level) =title
     =content.chomp
