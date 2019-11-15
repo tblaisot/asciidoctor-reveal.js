@@ -1833,7 +1833,8 @@ Opal.modules["asciidoctor-revealjs/converter"] = function(Opal) {
         opts = $hash2([], {});
       };
       node.$extend($$($nesting, 'Helpers'));
-      return $send(node, 'instance_eval', [], (TMP_55 = function(){var self = TMP_55.$$s || this, $a, $b, TMP_56, TMP_57, TMP_59, TMP_60, _buf = nil, titleless = nil, title = nil, hide_title = nil, vertical_slides = nil, data_background_image = nil, data_background_size = nil, data_background_repeat = nil, data_background_transition = nil, section_images = nil, bg_image = nil, data_background_color = nil, _slim_codeattributes1 = nil, _temple_html_attributeremover1 = nil, _slim_codeattributes2 = nil, _slim_codeattributes3 = nil, _slim_codeattributes4 = nil, _slim_codeattributes5 = nil, _slim_codeattributes6 = nil, _slim_codeattributes7 = nil, _slim_codeattributes8 = nil, _slim_codeattributes9 = nil, _slim_codeattributes10 = nil, _slim_codeattributes11 = nil, _slim_codeattributes12 = nil, _slim_codeattributes13 = nil, _slim_codeattributes14 = nil, _slim_htag_filter1 = nil, _slim_htag_filter2 = nil, _slim_htag_filter3 = nil, _slim_htag_filter4 = nil, _slim_codeattributes15 = nil, _temple_html_attributeremover2 = nil, _slim_codeattributes16 = nil, _slim_codeattributes17 = nil, _slim_codeattributes18 = nil, _slim_codeattributes19 = nil, _slim_codeattributes20 = nil, _slim_codeattributes21 = nil, _slim_codeattributes22 = nil, _slim_codeattributes23 = nil, _slim_codeattributes24 = nil, _slim_codeattributes25 = nil, _slim_codeattributes26 = nil, _slim_codeattributes27 = nil, _slim_codeattributes28 = nil, _slim_htag_filter5 = nil, _slim_htag_filter6 = nil, _slim_htag_filter7 = nil, _slim_htag_filter8 = nil;
+      return $send(node, 'instance_eval', [], (TMP_55 = function(){var self = TMP_55.$$s || this, $a, $b, TMP_56, TMP_57, TMP_59, TMP_60, _buf = nil, titleless = nil, title = nil, hide_title = nil, sub_slides = nil, data_background_image = nil, data_background_size = nil, data_background_repeat = nil, data_background_transition = nil, section_images = nil, bg_image = nil, data_background_color = nil, _slim_codeattributes1 = nil, _temple_html_attributeremover1 = nil, _slim_codeattributes2 = nil, _slim_codeattributes3 = nil, _slim_codeattributes4 = nil, _slim_codeattributes5 = nil, _slim_codeattributes6 = nil, _slim_codeattributes7 = nil, _slim_codeattributes8 = nil, _slim_codeattributes9 = nil, _slim_codeattributes10 = nil, _slim_codeattributes11 = nil, _slim_codeattributes12 = nil, _slim_codeattributes13 = nil, _slim_codeattributes14 = nil, _slim_htag_filter1 = nil, _slim_htag_filter2 = nil, _slim_htag_filter3 = nil, _slim_htag_filter4 = nil, _slim_htag_filter5 = nil, _slim_codeattributes15 = nil, _temple_html_attributeremover2 = nil, _slim_codeattributes16 = nil, _slim_codeattributes17 = nil, _slim_codeattributes18 = nil, _slim_codeattributes19 = nil, _slim_codeattributes20 = nil, _slim_codeattributes21 = nil, _slim_codeattributes22 = nil, _slim_codeattributes23 = nil, _slim_codeattributes24 = nil, _slim_codeattributes25 = nil, _slim_codeattributes26 = nil, _slim_codeattributes27 = nil, _slim_codeattributes28 = nil, _slim_htag_filter6 = nil, _slim_htag_filter7 = nil, _slim_htag_filter8 = nil, _slim_htag_filter9 = nil;
+        if (self.document == null) self.document = nil;
         if (self.level == null) self.level = nil;
         if (self.parent == null) self.parent = nil;
 
@@ -1845,7 +1846,7 @@ Opal.modules["asciidoctor-revealjs/converter"] = function(Opal) {
         _buf = [];
         titleless = (title = self.$title())['$==']("!");
         hide_title = ($truthy($a = ($truthy($b = titleless) ? $b : self['$option?']("notitle"))) ? $a : self['$option?']("conceal"));
-        vertical_slides = $send(self, 'find_by', [$hash2(["context"], {"context": "section"})], (TMP_56 = function(section){var self = TMP_56.$$s || this;
+        sub_slides = $send(self, 'find_by', [$hash2(["context"], {"context": "section"})], (TMP_56 = function(section){var self = TMP_56.$$s || this, $c;
           if (self.level == null) self.level = nil;
 
         
@@ -1853,7 +1854,7 @@ Opal.modules["asciidoctor-revealjs/converter"] = function(Opal) {
           if (section == null) {
             section = nil;
           };
-          return section.$level()['$==']($rb_plus(self.level, 1));}, TMP_56.$$s = self, TMP_56.$$arity = 1, TMP_56));
+          return (($c = section.$level()['$==']($rb_plus(self.level, 1))) ? section['$option?']("noslide")['$!']() : section.$level()['$==']($rb_plus(self.level, 1)));}, TMP_56.$$s = self, TMP_56.$$arity = 1, TMP_56));
         $b = nil, $a = Opal.to_ary($b), (data_background_image = ($a[0] == null ? nil : $a[0])), (data_background_size = ($a[1] == null ? nil : $a[1])), (data_background_repeat = ($a[2] == null ? nil : $a[2])), (data_background_transition = ($a[3] == null ? nil : $a[3])), $b;
         section_images = $send(self.$blocks(), 'map', [], (TMP_57 = function(block){var self = TMP_57.$$s || this, $c, TMP_58, ctx = nil;
 
@@ -1890,7 +1891,7 @@ Opal.modules["asciidoctor-revealjs/converter"] = function(Opal) {
           data_background_image = self.$image_uri(self.$attr("background-image"))};
         if ($truthy(self['$attr?']("background-color"))) {
           data_background_color = self.$attr("background-color")};
-        if ($truthy(vertical_slides['$empty?']()['$!']())) {
+        if ($truthy(sub_slides['$empty?']()['$!']())) {
           
           _buf['$<<']("<section");
           _slim_codeattributes1 = (function() {if ($truthy(titleless)) {
@@ -2048,34 +2049,36 @@ Opal.modules["asciidoctor-revealjs/converter"] = function(Opal) {
           if ($truthy(hide_title)) {
           } else {
             
-            if (self.level['$=='](2)) {
+            if ($truthy(self.document['$attr?']("repeat_titles"))) {
               
-              _slim_htag_filter1 = self.parent.$level().$to_s();
-              _buf['$<<']("<h");
-              _buf['$<<'](_slim_htag_filter1);
-              _buf['$<<'](" class=\"parent-title\">");
-              _buf['$<<'](self.$parent().$title());
-              _buf['$<<']("</h");
-              _buf['$<<'](_slim_htag_filter1);
-              _buf['$<<'](">");};
-            if (self.level['$=='](3)) {
-              
-              _slim_htag_filter2 = self.parent.$parent().$level().$to_s();
-              _buf['$<<']("<h");
-              _buf['$<<'](_slim_htag_filter2);
-              _buf['$<<'](" class=\"grand-parent-title\">");
-              _buf['$<<'](self.$parent().$parent().$title());
-              _buf['$<<']("</h");
-              _buf['$<<'](_slim_htag_filter2);
-              _buf['$<<'](">");
-              _slim_htag_filter3 = self.parent.$level().$to_s();
-              _buf['$<<']("<h");
-              _buf['$<<'](_slim_htag_filter3);
-              _buf['$<<'](" class=\"parent-title\">");
-              _buf['$<<'](self.$parent().$title());
-              _buf['$<<']("</h");
-              _buf['$<<'](_slim_htag_filter3);
-              _buf['$<<'](">");};
+              if (self.level['$=='](2)) {
+                
+                _slim_htag_filter1 = self.parent.$level().$to_s();
+                _buf['$<<']("<h");
+                _buf['$<<'](_slim_htag_filter1);
+                _buf['$<<'](" class=\"parent-title\">");
+                _buf['$<<'](self.$parent().$title());
+                _buf['$<<']("</h");
+                _buf['$<<'](_slim_htag_filter1);
+                _buf['$<<'](">");};
+              if (self.level['$=='](3)) {
+                
+                _slim_htag_filter2 = self.parent.$parent().$level().$to_s();
+                _buf['$<<']("<h");
+                _buf['$<<'](_slim_htag_filter2);
+                _buf['$<<'](" class=\"grand-parent-title\">");
+                _buf['$<<'](self.$parent().$parent().$title());
+                _buf['$<<']("</h");
+                _buf['$<<'](_slim_htag_filter2);
+                _buf['$<<'](">");
+                _slim_htag_filter3 = self.parent.$level().$to_s();
+                _buf['$<<']("<h");
+                _buf['$<<'](_slim_htag_filter3);
+                _buf['$<<'](" class=\"parent-title\">");
+                _buf['$<<'](self.$parent().$title());
+                _buf['$<<']("</h");
+                _buf['$<<'](_slim_htag_filter3);
+                _buf['$<<'](">");};};
             _slim_htag_filter4 = self.level.$to_s();
             _buf['$<<']("<h");
             _buf['$<<'](_slim_htag_filter4);
@@ -2085,7 +2088,7 @@ Opal.modules["asciidoctor-revealjs/converter"] = function(Opal) {
             _buf['$<<'](_slim_htag_filter4);
             _buf['$<<'](">");
           };
-          $send($rb_minus(self.$blocks(), vertical_slides), 'each', [], (TMP_59 = function(block){var self = TMP_59.$$s || this;
+          $send($rb_minus(self.$blocks(), sub_slides), 'each', [], (TMP_59 = function(block){var self = TMP_59.$$s || this;
 
           
             
@@ -2094,7 +2097,7 @@ Opal.modules["asciidoctor-revealjs/converter"] = function(Opal) {
             };
             return _buf['$<<'](block.$convert());}, TMP_59.$$s = self, TMP_59.$$arity = 1, TMP_59));
           _buf['$<<']("</section>");
-          $send(vertical_slides, 'each', [], (TMP_60 = function(subsection){var self = TMP_60.$$s || this;
+          $send(sub_slides, 'each', [], (TMP_60 = function(subsection){var self = TMP_60.$$s || this;
 
           
             
@@ -2102,6 +2105,17 @@ Opal.modules["asciidoctor-revealjs/converter"] = function(Opal) {
               subsection = nil;
             };
             return _buf['$<<'](subsection.$convert());}, TMP_60.$$s = self, TMP_60.$$arity = 1, TMP_60));
+        } else if ($truthy(self['$option?']("noslide"))) {
+          
+          _slim_htag_filter5 = self.level.$to_s();
+          _buf['$<<']("<h");
+          _buf['$<<'](_slim_htag_filter5);
+          _buf['$<<'](">");
+          _buf['$<<'](title);
+          _buf['$<<']("</h");
+          _buf['$<<'](_slim_htag_filter5);
+          _buf['$<<'](">");
+          _buf['$<<'](self.$content().$chomp());
         } else {
           
           _buf['$<<']("<section");
@@ -2258,45 +2272,44 @@ Opal.modules["asciidoctor-revealjs/converter"] = function(Opal) {
             }};
           _buf['$<<'](">");
           if ($truthy(hide_title)) {
-          } else {
+          } else if ($truthy(self.document['$attr?']("repeat_titles"))) {
             
             if (self.level['$=='](2)) {
               
-              _slim_htag_filter5 = self.parent.$level().$to_s();
+              _slim_htag_filter6 = self.parent.$level().$to_s();
               _buf['$<<']("<h");
-              _buf['$<<'](_slim_htag_filter5);
+              _buf['$<<'](_slim_htag_filter6);
               _buf['$<<'](" class=\"parent-title\">");
               _buf['$<<'](self.$parent().$title());
               _buf['$<<']("</h");
-              _buf['$<<'](_slim_htag_filter5);
+              _buf['$<<'](_slim_htag_filter6);
               _buf['$<<'](">");};
             if (self.level['$=='](3)) {
               
-              _slim_htag_filter6 = self.parent.$parent().$level().$to_s();
+              _slim_htag_filter7 = self.parent.$parent().$level().$to_s();
               _buf['$<<']("<h");
-              _buf['$<<'](_slim_htag_filter6);
+              _buf['$<<'](_slim_htag_filter7);
               _buf['$<<'](" class=\"grand-parent-title\">");
               _buf['$<<'](self.$parent().$parent().$title());
               _buf['$<<']("</h");
-              _buf['$<<'](_slim_htag_filter6);
-              _buf['$<<'](">");
-              _slim_htag_filter7 = self.parent.$level().$to_s();
-              _buf['$<<']("<h");
               _buf['$<<'](_slim_htag_filter7);
+              _buf['$<<'](">");
+              _slim_htag_filter8 = self.parent.$level().$to_s();
+              _buf['$<<']("<h");
+              _buf['$<<'](_slim_htag_filter8);
               _buf['$<<'](" class=\"parent-title\">");
               _buf['$<<'](self.$parent().$title());
               _buf['$<<']("</h");
-              _buf['$<<'](_slim_htag_filter7);
+              _buf['$<<'](_slim_htag_filter8);
               _buf['$<<'](">");};
-            _slim_htag_filter8 = self.level.$to_s();
+            _slim_htag_filter9 = self.level.$to_s();
             _buf['$<<']("<h");
-            _buf['$<<'](_slim_htag_filter8);
+            _buf['$<<'](_slim_htag_filter9);
             _buf['$<<'](">");
             _buf['$<<'](title);
             _buf['$<<']("</h");
-            _buf['$<<'](_slim_htag_filter8);
-            _buf['$<<'](">");
-          };
+            _buf['$<<'](_slim_htag_filter9);
+            _buf['$<<'](">");};
           _buf['$<<'](self.$content().$chomp());
           _buf['$<<']("</section>");
         };

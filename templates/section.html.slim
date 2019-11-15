@@ -3,7 +3,7 @@
 - titleless = (title = self.title) == '!'
 - hide_title = (titleless || (option? :notitle) || (option? :conceal))
 
-- vertical_slides = find_by(context: :section) {|section| section.level == @level+1 }
+- sub_slides = find_by(context: :section) {|section| section.level == @level+1 and not section.option? :noslide}
 
 / extracting block image attributes to find an image to use as a
 / background_image attribute
@@ -34,7 +34,7 @@
 
 / RENDERING
 / render parent section of vertical slides set
-- if !vertical_slides.empty?
+- if !sub_slides.empty?
   section(id=(titleless ? nil : id)
     class=roles
     data-transition=(attr 'transition')
@@ -51,16 +51,23 @@
     data-state=(attr 'state'))
 
     - unless hide_title
-      - if @level == 2
-        h class='parent-title' level=(@parent.level) = parent.title
-      - if @level == 3
-        h class='grand-parent-title' level=(@parent.parent.level) = parent.parent.title
-        h class='parent-title' level=(@parent.level) = parent.title
+      - if @document.attr? :repeat_titles
+        - if @level == 2
+          h class='parent-title' level=(@parent.level) = parent.title
+        - if @level == 3
+          h class='grand-parent-title' level=(@parent.parent.level) = parent.parent.title
+          h class='parent-title' level=(@parent.level) = parent.title
       h level=(@level) =title
-    - (blocks - vertical_slides).each do |block|
+    - (blocks - sub_slides).each do |block|
       =block.convert
-  - vertical_slides.each do |subsection|
+
+  - sub_slides.each do |subsection|
     =subsection.convert
+
+/ render standalone slides (or vertical slide subsection)
+- elsif option? :noslide
+    h level=(@level) =title
+    =content.chomp
 
 / render standalone slides (or vertical slide subsection)
 - else
@@ -80,10 +87,11 @@
     data-state=(attr 'state'))
 
     - unless hide_title
-      - if @level == 2
-        h class='parent-title' level=(@parent.level) = parent.title
-      - if @level == 3
-        h class='grand-parent-title' level=(@parent.parent.level) = parent.parent.title
-        h class='parent-title' level=(@parent.level) = parent.title
-      h level=(@level) =title
+      - if @document.attr? :repeat_titles
+        - if @level == 2
+          h class='parent-title' level=(@parent.level) = parent.title
+        - if @level == 3
+          h class='grand-parent-title' level=(@parent.parent.level) = parent.parent.title
+          h class='parent-title' level=(@parent.level) = parent.title
+        h level=(@level) =title
     =content.chomp
