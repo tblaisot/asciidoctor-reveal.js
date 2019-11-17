@@ -1833,7 +1833,7 @@ Opal.modules["asciidoctor-revealjs/converter"] = function(Opal) {
         opts = $hash2([], {});
       };
       node.$extend($$($nesting, 'Helpers'));
-      return $send(node, 'instance_eval', [], (TMP_55 = function(){var self = TMP_55.$$s || this, $a, $b, TMP_56, TMP_57, TMP_59, TMP_60, _buf = nil, titleless = nil, title = nil, hide_title = nil, sub_slides = nil, data_background_image = nil, data_background_size = nil, data_background_repeat = nil, data_background_transition = nil, section_images = nil, bg_image = nil, data_background_color = nil, _slim_codeattributes1 = nil, _temple_html_attributeremover1 = nil, _slim_codeattributes2 = nil, _slim_codeattributes3 = nil, _slim_codeattributes4 = nil, _slim_codeattributes5 = nil, _slim_codeattributes6 = nil, _slim_codeattributes7 = nil, _slim_codeattributes8 = nil, _slim_codeattributes9 = nil, _slim_codeattributes10 = nil, _slim_codeattributes11 = nil, _slim_codeattributes12 = nil, _slim_codeattributes13 = nil, _slim_codeattributes14 = nil, _slim_htag_filter1 = nil, _slim_htag_filter2 = nil, _slim_htag_filter3 = nil, _slim_htag_filter4 = nil, _slim_htag_filter5 = nil, _slim_codeattributes15 = nil, _temple_html_attributeremover2 = nil, _slim_codeattributes16 = nil, _slim_codeattributes17 = nil, _slim_codeattributes18 = nil, _slim_codeattributes19 = nil, _slim_codeattributes20 = nil, _slim_codeattributes21 = nil, _slim_codeattributes22 = nil, _slim_codeattributes23 = nil, _slim_codeattributes24 = nil, _slim_codeattributes25 = nil, _slim_codeattributes26 = nil, _slim_codeattributes27 = nil, _slim_codeattributes28 = nil, _slim_htag_filter6 = nil, _slim_htag_filter7 = nil, _slim_htag_filter8 = nil, _slim_htag_filter9 = nil;
+      return $send(node, 'instance_eval', [], (TMP_55 = function(){var self = TMP_55.$$s || this, $a, $b, TMP_56, TMP_57, TMP_59, TMP_60, _buf = nil, titleless = nil, title = nil, hide_title = nil, sub_slides = nil, data_background_image = nil, data_background_size = nil, data_background_repeat = nil, data_background_transition = nil, section_images = nil, bg_image = nil, data_background_color = nil, _slim_codeattributes1 = nil, _temple_html_attributeremover1 = nil, _slim_codeattributes2 = nil, _slim_codeattributes3 = nil, _slim_codeattributes4 = nil, _slim_codeattributes5 = nil, _slim_codeattributes6 = nil, _slim_codeattributes7 = nil, _slim_codeattributes8 = nil, _slim_codeattributes9 = nil, _slim_codeattributes10 = nil, _slim_codeattributes11 = nil, _slim_codeattributes12 = nil, _slim_codeattributes13 = nil, _slim_codeattributes14 = nil, _slim_htag_filter1 = nil, _slim_htag_filter2 = nil, _slim_htag_filter3 = nil, _slim_htag_filter4 = nil, _slim_htag_filter5 = nil, _temple_html_attributeremover2 = nil, _slim_codeattributes15 = nil, _slim_codeattributes16 = nil, _temple_html_attributeremover3 = nil, _slim_codeattributes17 = nil, _slim_codeattributes18 = nil, _slim_codeattributes19 = nil, _slim_codeattributes20 = nil, _slim_codeattributes21 = nil, _slim_codeattributes22 = nil, _slim_codeattributes23 = nil, _slim_codeattributes24 = nil, _slim_codeattributes25 = nil, _slim_codeattributes26 = nil, _slim_codeattributes27 = nil, _slim_codeattributes28 = nil, _slim_codeattributes29 = nil, _slim_htag_filter6 = nil, _temple_html_attributeremover4 = nil, _slim_codeattributes30 = nil, _slim_htag_filter7 = nil, _temple_html_attributeremover5 = nil, _slim_codeattributes31 = nil, _slim_htag_filter8 = nil, _temple_html_attributeremover6 = nil, _slim_codeattributes32 = nil, _slim_htag_filter9 = nil, _temple_html_attributeremover7 = nil, _slim_codeattributes33 = nil;
         if (self.document == null) self.document = nil;
         if (self.level == null) self.level = nil;
         if (self.parent == null) self.parent = nil;
@@ -2110,6 +2110,23 @@ Opal.modules["asciidoctor-revealjs/converter"] = function(Opal) {
           _slim_htag_filter5 = self.level.$to_s();
           _buf['$<<']("<h");
           _buf['$<<'](_slim_htag_filter5);
+          _temple_html_attributeremover2 = [];
+          _slim_codeattributes15 = self.$roles();
+          if ($truthy($$($nesting, 'Array')['$==='](_slim_codeattributes15))) {
+            
+            _slim_codeattributes15 = _slim_codeattributes15.$flatten();
+            $send(_slim_codeattributes15, 'map!', [], "to_s".$to_proc());
+            $send(_slim_codeattributes15, 'reject!', [], "empty?".$to_proc());
+            _temple_html_attributeremover2['$<<'](_slim_codeattributes15.$join(" "));
+          } else {
+            _temple_html_attributeremover2['$<<'](_slim_codeattributes15)
+          };
+          _temple_html_attributeremover2 = _temple_html_attributeremover2.$join("");
+          if ($truthy(_temple_html_attributeremover2['$empty?']()['$!']())) {
+            
+            _buf['$<<'](" class=\"");
+            _buf['$<<'](_temple_html_attributeremover2);
+            _buf['$<<']("\"");};
           _buf['$<<'](">");
           _buf['$<<'](title);
           _buf['$<<']("</h");
@@ -2119,155 +2136,155 @@ Opal.modules["asciidoctor-revealjs/converter"] = function(Opal) {
         } else {
           
           _buf['$<<']("<section");
-          _slim_codeattributes15 = (function() {if ($truthy(titleless)) {
+          _slim_codeattributes16 = (function() {if ($truthy(titleless)) {
             return nil
           } else {
             return self.$id()
           }; return nil; })();
-          if ($truthy(_slim_codeattributes15)) {
-            if (_slim_codeattributes15['$=='](true)) {
+          if ($truthy(_slim_codeattributes16)) {
+            if (_slim_codeattributes16['$=='](true)) {
               _buf['$<<'](" id")
             } else {
               
               _buf['$<<'](" id=\"");
-              _buf['$<<'](_slim_codeattributes15);
+              _buf['$<<'](_slim_codeattributes16);
               _buf['$<<']("\"");
             }};
-          _temple_html_attributeremover2 = [];
-          _slim_codeattributes16 = self.$roles();
-          if ($truthy($$($nesting, 'Array')['$==='](_slim_codeattributes16))) {
+          _temple_html_attributeremover3 = [];
+          _slim_codeattributes17 = self.$roles();
+          if ($truthy($$($nesting, 'Array')['$==='](_slim_codeattributes17))) {
             
-            _slim_codeattributes16 = _slim_codeattributes16.$flatten();
-            $send(_slim_codeattributes16, 'map!', [], "to_s".$to_proc());
-            $send(_slim_codeattributes16, 'reject!', [], "empty?".$to_proc());
-            _temple_html_attributeremover2['$<<'](_slim_codeattributes16.$join(" "));
+            _slim_codeattributes17 = _slim_codeattributes17.$flatten();
+            $send(_slim_codeattributes17, 'map!', [], "to_s".$to_proc());
+            $send(_slim_codeattributes17, 'reject!', [], "empty?".$to_proc());
+            _temple_html_attributeremover3['$<<'](_slim_codeattributes17.$join(" "));
           } else {
-            _temple_html_attributeremover2['$<<'](_slim_codeattributes16)
+            _temple_html_attributeremover3['$<<'](_slim_codeattributes17)
           };
-          _temple_html_attributeremover2 = _temple_html_attributeremover2.$join("");
-          if ($truthy(_temple_html_attributeremover2['$empty?']()['$!']())) {
+          _temple_html_attributeremover3 = _temple_html_attributeremover3.$join("");
+          if ($truthy(_temple_html_attributeremover3['$empty?']()['$!']())) {
             
             _buf['$<<'](" class=\"");
-            _buf['$<<'](_temple_html_attributeremover2);
+            _buf['$<<'](_temple_html_attributeremover3);
             _buf['$<<']("\"");};
-          _slim_codeattributes17 = self.$attr("transition");
-          if ($truthy(_slim_codeattributes17)) {
-            if (_slim_codeattributes17['$=='](true)) {
+          _slim_codeattributes18 = self.$attr("transition");
+          if ($truthy(_slim_codeattributes18)) {
+            if (_slim_codeattributes18['$=='](true)) {
               _buf['$<<'](" data-transition")
             } else {
               
               _buf['$<<'](" data-transition=\"");
-              _buf['$<<'](_slim_codeattributes17);
+              _buf['$<<'](_slim_codeattributes18);
               _buf['$<<']("\"");
             }};
-          _slim_codeattributes18 = self.$attr("transition-speed");
-          if ($truthy(_slim_codeattributes18)) {
-            if (_slim_codeattributes18['$=='](true)) {
+          _slim_codeattributes19 = self.$attr("transition-speed");
+          if ($truthy(_slim_codeattributes19)) {
+            if (_slim_codeattributes19['$=='](true)) {
               _buf['$<<'](" data-transition-speed")
             } else {
               
               _buf['$<<'](" data-transition-speed=\"");
-              _buf['$<<'](_slim_codeattributes18);
+              _buf['$<<'](_slim_codeattributes19);
               _buf['$<<']("\"");
             }};
-          _slim_codeattributes19 = data_background_color;
-          if ($truthy(_slim_codeattributes19)) {
-            if (_slim_codeattributes19['$=='](true)) {
+          _slim_codeattributes20 = data_background_color;
+          if ($truthy(_slim_codeattributes20)) {
+            if (_slim_codeattributes20['$=='](true)) {
               _buf['$<<'](" data-background-color")
             } else {
               
               _buf['$<<'](" data-background-color=\"");
-              _buf['$<<'](_slim_codeattributes19);
+              _buf['$<<'](_slim_codeattributes20);
               _buf['$<<']("\"");
             }};
-          _slim_codeattributes20 = data_background_image;
-          if ($truthy(_slim_codeattributes20)) {
-            if (_slim_codeattributes20['$=='](true)) {
+          _slim_codeattributes21 = data_background_image;
+          if ($truthy(_slim_codeattributes21)) {
+            if (_slim_codeattributes21['$=='](true)) {
               _buf['$<<'](" data-background-image")
             } else {
               
               _buf['$<<'](" data-background-image=\"");
-              _buf['$<<'](_slim_codeattributes20);
+              _buf['$<<'](_slim_codeattributes21);
               _buf['$<<']("\"");
             }};
-          _slim_codeattributes21 = ($truthy($a = data_background_size) ? $a : self.$attr("background-size"));
-          if ($truthy(_slim_codeattributes21)) {
-            if (_slim_codeattributes21['$=='](true)) {
+          _slim_codeattributes22 = ($truthy($a = data_background_size) ? $a : self.$attr("background-size"));
+          if ($truthy(_slim_codeattributes22)) {
+            if (_slim_codeattributes22['$=='](true)) {
               _buf['$<<'](" data-background-size")
             } else {
               
               _buf['$<<'](" data-background-size=\"");
-              _buf['$<<'](_slim_codeattributes21);
+              _buf['$<<'](_slim_codeattributes22);
               _buf['$<<']("\"");
             }};
-          _slim_codeattributes22 = ($truthy($a = data_background_repeat) ? $a : self.$attr("background-repeat"));
-          if ($truthy(_slim_codeattributes22)) {
-            if (_slim_codeattributes22['$=='](true)) {
+          _slim_codeattributes23 = ($truthy($a = data_background_repeat) ? $a : self.$attr("background-repeat"));
+          if ($truthy(_slim_codeattributes23)) {
+            if (_slim_codeattributes23['$=='](true)) {
               _buf['$<<'](" data-background-repeat")
             } else {
               
               _buf['$<<'](" data-background-repeat=\"");
-              _buf['$<<'](_slim_codeattributes22);
+              _buf['$<<'](_slim_codeattributes23);
               _buf['$<<']("\"");
             }};
-          _slim_codeattributes23 = ($truthy($a = data_background_transition) ? $a : self.$attr("background-transition"));
-          if ($truthy(_slim_codeattributes23)) {
-            if (_slim_codeattributes23['$=='](true)) {
+          _slim_codeattributes24 = ($truthy($a = data_background_transition) ? $a : self.$attr("background-transition"));
+          if ($truthy(_slim_codeattributes24)) {
+            if (_slim_codeattributes24['$=='](true)) {
               _buf['$<<'](" data-background-transition")
             } else {
               
               _buf['$<<'](" data-background-transition=\"");
-              _buf['$<<'](_slim_codeattributes23);
+              _buf['$<<'](_slim_codeattributes24);
               _buf['$<<']("\"");
             }};
-          _slim_codeattributes24 = self.$attr("background-iframe");
-          if ($truthy(_slim_codeattributes24)) {
-            if (_slim_codeattributes24['$=='](true)) {
+          _slim_codeattributes25 = self.$attr("background-iframe");
+          if ($truthy(_slim_codeattributes25)) {
+            if (_slim_codeattributes25['$=='](true)) {
               _buf['$<<'](" data-background-iframe")
             } else {
               
               _buf['$<<'](" data-background-iframe=\"");
-              _buf['$<<'](_slim_codeattributes24);
+              _buf['$<<'](_slim_codeattributes25);
               _buf['$<<']("\"");
             }};
-          _slim_codeattributes25 = self.$attr("background-video");
-          if ($truthy(_slim_codeattributes25)) {
-            if (_slim_codeattributes25['$=='](true)) {
+          _slim_codeattributes26 = self.$attr("background-video");
+          if ($truthy(_slim_codeattributes26)) {
+            if (_slim_codeattributes26['$=='](true)) {
               _buf['$<<'](" data-background-video")
             } else {
               
               _buf['$<<'](" data-background-video=\"");
-              _buf['$<<'](_slim_codeattributes25);
+              _buf['$<<'](_slim_codeattributes26);
               _buf['$<<']("\"");
             }};
-          _slim_codeattributes26 = ($truthy($a = self['$attr?']("background-video-loop")) ? $a : self['$option?']("loop"));
-          if ($truthy(_slim_codeattributes26)) {
-            if (_slim_codeattributes26['$=='](true)) {
+          _slim_codeattributes27 = ($truthy($a = self['$attr?']("background-video-loop")) ? $a : self['$option?']("loop"));
+          if ($truthy(_slim_codeattributes27)) {
+            if (_slim_codeattributes27['$=='](true)) {
               _buf['$<<'](" data-background-video-loop")
             } else {
               
               _buf['$<<'](" data-background-video-loop=\"");
-              _buf['$<<'](_slim_codeattributes26);
+              _buf['$<<'](_slim_codeattributes27);
               _buf['$<<']("\"");
             }};
-          _slim_codeattributes27 = ($truthy($a = self['$attr?']("background-video-muted")) ? $a : self['$option?']("muted"));
-          if ($truthy(_slim_codeattributes27)) {
-            if (_slim_codeattributes27['$=='](true)) {
+          _slim_codeattributes28 = ($truthy($a = self['$attr?']("background-video-muted")) ? $a : self['$option?']("muted"));
+          if ($truthy(_slim_codeattributes28)) {
+            if (_slim_codeattributes28['$=='](true)) {
               _buf['$<<'](" data-background-video-muted")
             } else {
               
               _buf['$<<'](" data-background-video-muted=\"");
-              _buf['$<<'](_slim_codeattributes27);
+              _buf['$<<'](_slim_codeattributes28);
               _buf['$<<']("\"");
             }};
-          _slim_codeattributes28 = self.$attr("state");
-          if ($truthy(_slim_codeattributes28)) {
-            if (_slim_codeattributes28['$=='](true)) {
+          _slim_codeattributes29 = self.$attr("state");
+          if ($truthy(_slim_codeattributes29)) {
+            if (_slim_codeattributes29['$=='](true)) {
               _buf['$<<'](" data-state")
             } else {
               
               _buf['$<<'](" data-state=\"");
-              _buf['$<<'](_slim_codeattributes28);
+              _buf['$<<'](_slim_codeattributes29);
               _buf['$<<']("\"");
             }};
           _buf['$<<'](">");
@@ -2279,7 +2296,24 @@ Opal.modules["asciidoctor-revealjs/converter"] = function(Opal) {
               _slim_htag_filter6 = self.parent.$level().$to_s();
               _buf['$<<']("<h");
               _buf['$<<'](_slim_htag_filter6);
-              _buf['$<<'](" class=\"parent-title\">");
+              _temple_html_attributeremover4 = [];
+              _slim_codeattributes30 = ["parent-title", self.$parent().$roles()];
+              if ($truthy($$($nesting, 'Array')['$==='](_slim_codeattributes30))) {
+                
+                _slim_codeattributes30 = _slim_codeattributes30.$flatten();
+                $send(_slim_codeattributes30, 'map!', [], "to_s".$to_proc());
+                $send(_slim_codeattributes30, 'reject!', [], "empty?".$to_proc());
+                _temple_html_attributeremover4['$<<'](_slim_codeattributes30.$join(" "));
+              } else {
+                _temple_html_attributeremover4['$<<'](_slim_codeattributes30)
+              };
+              _temple_html_attributeremover4 = _temple_html_attributeremover4.$join("");
+              if ($truthy(_temple_html_attributeremover4['$empty?']()['$!']())) {
+                
+                _buf['$<<'](" class=\"");
+                _buf['$<<'](_temple_html_attributeremover4);
+                _buf['$<<']("\"");};
+              _buf['$<<'](">");
               _buf['$<<'](self.$parent().$title());
               _buf['$<<']("</h");
               _buf['$<<'](_slim_htag_filter6);
@@ -2289,7 +2323,24 @@ Opal.modules["asciidoctor-revealjs/converter"] = function(Opal) {
               _slim_htag_filter7 = self.parent.$parent().$level().$to_s();
               _buf['$<<']("<h");
               _buf['$<<'](_slim_htag_filter7);
-              _buf['$<<'](" class=\"grand-parent-title\">");
+              _temple_html_attributeremover5 = [];
+              _slim_codeattributes31 = ["grand-parent-title", self.$parent().$parent().$roles()];
+              if ($truthy($$($nesting, 'Array')['$==='](_slim_codeattributes31))) {
+                
+                _slim_codeattributes31 = _slim_codeattributes31.$flatten();
+                $send(_slim_codeattributes31, 'map!', [], "to_s".$to_proc());
+                $send(_slim_codeattributes31, 'reject!', [], "empty?".$to_proc());
+                _temple_html_attributeremover5['$<<'](_slim_codeattributes31.$join(" "));
+              } else {
+                _temple_html_attributeremover5['$<<'](_slim_codeattributes31)
+              };
+              _temple_html_attributeremover5 = _temple_html_attributeremover5.$join("");
+              if ($truthy(_temple_html_attributeremover5['$empty?']()['$!']())) {
+                
+                _buf['$<<'](" class=\"");
+                _buf['$<<'](_temple_html_attributeremover5);
+                _buf['$<<']("\"");};
+              _buf['$<<'](">");
               _buf['$<<'](self.$parent().$parent().$title());
               _buf['$<<']("</h");
               _buf['$<<'](_slim_htag_filter7);
@@ -2297,7 +2348,24 @@ Opal.modules["asciidoctor-revealjs/converter"] = function(Opal) {
               _slim_htag_filter8 = self.parent.$level().$to_s();
               _buf['$<<']("<h");
               _buf['$<<'](_slim_htag_filter8);
-              _buf['$<<'](" class=\"parent-title\">");
+              _temple_html_attributeremover6 = [];
+              _slim_codeattributes32 = ["parent-title", self.$parent().$roles()];
+              if ($truthy($$($nesting, 'Array')['$==='](_slim_codeattributes32))) {
+                
+                _slim_codeattributes32 = _slim_codeattributes32.$flatten();
+                $send(_slim_codeattributes32, 'map!', [], "to_s".$to_proc());
+                $send(_slim_codeattributes32, 'reject!', [], "empty?".$to_proc());
+                _temple_html_attributeremover6['$<<'](_slim_codeattributes32.$join(" "));
+              } else {
+                _temple_html_attributeremover6['$<<'](_slim_codeattributes32)
+              };
+              _temple_html_attributeremover6 = _temple_html_attributeremover6.$join("");
+              if ($truthy(_temple_html_attributeremover6['$empty?']()['$!']())) {
+                
+                _buf['$<<'](" class=\"");
+                _buf['$<<'](_temple_html_attributeremover6);
+                _buf['$<<']("\"");};
+              _buf['$<<'](">");
               _buf['$<<'](self.$parent().$title());
               _buf['$<<']("</h");
               _buf['$<<'](_slim_htag_filter8);
@@ -2305,6 +2373,23 @@ Opal.modules["asciidoctor-revealjs/converter"] = function(Opal) {
             _slim_htag_filter9 = self.level.$to_s();
             _buf['$<<']("<h");
             _buf['$<<'](_slim_htag_filter9);
+            _temple_html_attributeremover7 = [];
+            _slim_codeattributes33 = self.$roles();
+            if ($truthy($$($nesting, 'Array')['$==='](_slim_codeattributes33))) {
+              
+              _slim_codeattributes33 = _slim_codeattributes33.$flatten();
+              $send(_slim_codeattributes33, 'map!', [], "to_s".$to_proc());
+              $send(_slim_codeattributes33, 'reject!', [], "empty?".$to_proc());
+              _temple_html_attributeremover7['$<<'](_slim_codeattributes33.$join(" "));
+            } else {
+              _temple_html_attributeremover7['$<<'](_slim_codeattributes33)
+            };
+            _temple_html_attributeremover7 = _temple_html_attributeremover7.$join("");
+            if ($truthy(_temple_html_attributeremover7['$empty?']()['$!']())) {
+              
+              _buf['$<<'](" class=\"");
+              _buf['$<<'](_temple_html_attributeremover7);
+              _buf['$<<']("\"");};
             _buf['$<<'](">");
             _buf['$<<'](title);
             _buf['$<<']("</h");

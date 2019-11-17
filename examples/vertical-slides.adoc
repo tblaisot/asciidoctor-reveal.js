@@ -4,8 +4,14 @@
 // :header_footer:
 = Vertical Slides
 :backend: revealjs
+:repeat_titles: true
 
 == First slide
+
+[.toto]
+--
+this is a test block
+--
 
 First content
 
@@ -16,6 +22,10 @@ Content
 === Vertical 2
 
 More content
+
+
+[%noslide]
+==== No Slides
 
 ==== Another level
 

@@ -64,14 +64,18 @@
   - sub_slides.each do |subsection|
     =subsection.convert
 
-/ render standalone slides (or vertical slide subsection)
+/ render no slide (simple title)
 - elsif option? :noslide
-    h level=(@level) =title
+    h(
+      level=(@level)
+      class=roles)
+      =title
     =content.chomp
 
 / render standalone slides (or vertical slide subsection)
 - else
-  section(id=(titleless ? nil : id)
+  section(
+    id=(titleless ? nil : id)
     class=roles
     data-transition=(attr 'transition')
     data-transition-speed=(attr 'transition-speed')
@@ -89,9 +93,21 @@
     - unless hide_title
       - if @document.attr? :repeat_titles
         - if @level == 2
-          h class='parent-title' level=(@parent.level) = parent.title
+          h(
+            class=['parent-title',parent.roles]
+            level=(@parent.level))
+            =parent.title
         - if @level == 3
-          h class='grand-parent-title' level=(@parent.parent.level) = parent.parent.title
-          h class='parent-title' level=(@parent.level) = parent.title
-        h level=(@level) =title
+          h(
+            class=['grand-parent-title',parent.parent.roles]
+            level=(@parent.parent.level))
+            =parent.parent.title
+          h(
+            class=['parent-title',parent.roles]
+            level=(@parent.level))
+            =parent.title
+        h(
+          level=(@level)
+          class=roles)
+          =title
     =content.chomp
