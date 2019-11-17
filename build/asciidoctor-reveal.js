@@ -1919,6 +1919,8 @@ Opal.modules["asciidoctor-revealjs/converter"] = function(Opal) {
           _buf['$<<'](_slim_htag_filter1);
           _buf['$<<'](">");
           _buf['$<<'](self.$content().$chomp());
+        } else if ($truthy(self['$option?']("emptyslide"))) {
+          _buf['$<<'](self.$content().$chomp())
         } else {
           
           _buf['$<<']("<section");

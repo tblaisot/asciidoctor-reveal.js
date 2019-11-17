@@ -35,10 +35,16 @@
 / RENDERING
 / render normal title without a slide
 - if option? :noslide
+
   h(
     level=(@level)
     class=roles)
     =title
+
+  =content.chomp
+
+- elsif option? :emptyslide
+
   =content.chomp
 
 / render a slide for each title
