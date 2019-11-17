@@ -33,46 +33,15 @@
   - data_background_color = attr 'background-color'
 
 / RENDERING
-/ render parent section of vertical slides set
-- if !sub_slides.empty?
-  section(id=(titleless ? nil : id)
-    class=roles
-    data-transition=(attr 'transition')
-    data-transition-speed=(attr 'transition-speed')
-    data-background-color=data_background_color
-    data-background-image=data_background_image
-    data-background-size=(data_background_size || attr('background-size'))
-    data-background-repeat=(data_background_repeat || attr('background-repeat'))
-    data-background-transition=(data_background_transition || attr('background-transition'))
-    data-background-iframe=(attr "background-iframe")
-    data-background-video=(attr "background-video")
-    data-background-video-loop=((attr? 'background-video-loop') || (option? 'loop'))
-    data-background-video-muted=((attr? 'background-video-muted') || (option? 'muted'))
-    data-state=(attr 'state'))
+/ render normal title without a slide
+- if option? :noslide
+  h(
+    level=(@level)
+    class=roles)
+    =title
+  =content.chomp
 
-    - unless hide_title
-      - if @document.attr? :repeat_titles
-        - if @level == 2
-          h class='parent-title' level=(@parent.level) = parent.title
-        - if @level == 3
-          h class='grand-parent-title' level=(@parent.parent.level) = parent.parent.title
-          h class='parent-title' level=(@parent.level) = parent.title
-      h level=(@level) =title
-    - (blocks - sub_slides).each do |block|
-      =block.convert
-
-  - sub_slides.each do |subsection|
-    =subsection.convert
-
-/ render no slide (simple title)
-- elsif option? :noslide
-    h(
-      level=(@level)
-      class=roles)
-      =title
-    =content.chomp
-
-/ render standalone slides (or vertical slide subsection)
+/ render a slide for each title
 - else
   section(
     id=(titleless ? nil : id)
@@ -90,6 +59,7 @@
     data-background-video-muted=((attr? 'background-video-muted') || (option? 'muted'))
     data-state=(attr 'state'))
 
+    / title unless hide title option
     - unless hide_title
       - if @document.attr? :repeat_titles
         - if @level == 2
@@ -110,4 +80,18 @@
           level=(@level)
           class=roles)
           =title
-    =content.chomp
+
+
+    / convert childs blocs not being slides
+    - if !sub_slides.empty?
+      - (blocks - sub_slides).each do |block|
+        =block.convert
+
+    / Render content of the slide
+    - else
+      =content.chomp
+
+  / render child title as brother slides
+  - if !sub_slides.empty?
+    - sub_slides.each do |subsection|
+      =subsection.convert
