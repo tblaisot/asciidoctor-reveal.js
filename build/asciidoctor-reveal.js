@@ -1833,7 +1833,7 @@ Opal.modules["asciidoctor-revealjs/converter"] = function(Opal) {
         opts = $hash2([], {});
       };
       node.$extend($$($nesting, 'Helpers'));
-      return $send(node, 'instance_eval', [], (TMP_55 = function(){var self = TMP_55.$$s || this, $a, $b, TMP_56, TMP_57, TMP_59, TMP_60, _buf = nil, titleless = nil, title = nil, hide_title = nil, sub_slides = nil, data_background_image = nil, data_background_size = nil, data_background_repeat = nil, data_background_transition = nil, section_images = nil, bg_image = nil, data_background_color = nil, _slim_htag_filter1 = nil, _temple_html_attributeremover1 = nil, _slim_codeattributes1 = nil, _slim_codeattributes2 = nil, _temple_html_attributeremover2 = nil, _slim_codeattributes3 = nil, _slim_codeattributes4 = nil, _slim_codeattributes5 = nil, _slim_codeattributes6 = nil, _slim_codeattributes7 = nil, _slim_codeattributes8 = nil, _slim_codeattributes9 = nil, _slim_codeattributes10 = nil, _slim_codeattributes11 = nil, _slim_codeattributes12 = nil, _slim_codeattributes13 = nil, _slim_codeattributes14 = nil, _slim_codeattributes15 = nil, _slim_htag_filter2 = nil, _temple_html_attributeremover3 = nil, _slim_codeattributes16 = nil, _slim_htag_filter3 = nil, _temple_html_attributeremover4 = nil, _slim_codeattributes17 = nil, _slim_htag_filter4 = nil, _temple_html_attributeremover5 = nil, _slim_codeattributes18 = nil, _slim_htag_filter5 = nil, _temple_html_attributeremover6 = nil, _slim_codeattributes19 = nil;
+      return $send(node, 'instance_eval', [], (TMP_55 = function(){var self = TMP_55.$$s || this, $a, $b, TMP_56, TMP_57, TMP_59, TMP_60, _buf = nil, titleless = nil, title = nil, noslideid = nil, hide_title = nil, sub_slides = nil, data_background_image = nil, data_background_size = nil, data_background_repeat = nil, data_background_transition = nil, section_images = nil, bg_image = nil, data_background_color = nil, _slim_htag_filter1 = nil, _temple_html_attributeremover1 = nil, _slim_codeattributes1 = nil, _slim_codeattributes2 = nil, _temple_html_attributeremover2 = nil, _slim_codeattributes3 = nil, _slim_codeattributes4 = nil, _slim_codeattributes5 = nil, _slim_codeattributes6 = nil, _slim_codeattributes7 = nil, _slim_codeattributes8 = nil, _slim_codeattributes9 = nil, _slim_codeattributes10 = nil, _slim_codeattributes11 = nil, _slim_codeattributes12 = nil, _slim_codeattributes13 = nil, _slim_codeattributes14 = nil, _slim_codeattributes15 = nil, _slim_htag_filter2 = nil, _temple_html_attributeremover3 = nil, _slim_codeattributes16 = nil, _slim_htag_filter3 = nil, _temple_html_attributeremover4 = nil, _slim_codeattributes17 = nil, _slim_htag_filter4 = nil, _temple_html_attributeremover5 = nil, _slim_codeattributes18 = nil, _slim_htag_filter5 = nil, _temple_html_attributeremover6 = nil, _slim_codeattributes19 = nil;
         if (self.level == null) self.level = nil;
         if (self.document == null) self.document = nil;
         if (self.parent == null) self.parent = nil;
@@ -1845,6 +1845,7 @@ Opal.modules["asciidoctor-revealjs/converter"] = function(Opal) {
         };
         _buf = [];
         titleless = (title = self.$title())['$==']("!");
+        noslideid = ($truthy($a = titleless) ? $a : self.$document()['$attr?']("noslideid"));
         hide_title = ($truthy($a = ($truthy($b = titleless) ? $b : self['$option?']("notitle"))) ? $a : self['$option?']("conceal"));
         sub_slides = $send(self, 'find_by', [$hash2(["context"], {"context": "section"})], (TMP_56 = function(section){var self = TMP_56.$$s || this, $c;
           if (self.level == null) self.level = nil;
@@ -1924,7 +1925,7 @@ Opal.modules["asciidoctor-revealjs/converter"] = function(Opal) {
         } else {
           
           _buf['$<<']("<section");
-          _slim_codeattributes2 = (function() {if ($truthy(titleless)) {
+          _slim_codeattributes2 = (function() {if ($truthy(noslideid)) {
             return nil
           } else {
             return self.$id()

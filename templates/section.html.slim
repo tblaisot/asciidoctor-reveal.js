@@ -1,6 +1,7 @@
 / OPTIONS PROCESSING
 / hide slides on %conceal, %notitle and named "!"
 - titleless = (title = self.title) == '!'
+- noslideid = (titleless || (document.attr? :noslideid))
 - hide_title = (titleless || (option? :notitle) || (option? :conceal))
 
 - sub_slides = find_by(context: :section) {|section| section.level == @level+1 and not section.option? :noslide}
@@ -50,7 +51,7 @@
 / render a slide for each title
 - else
   section(
-    id=(titleless ? nil : id)
+    id=(noslideid ? nil : id)
     class=roles
     data-transition=(attr 'transition')
     data-transition-speed=(attr 'transition-speed')
